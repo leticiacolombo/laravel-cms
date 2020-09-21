@@ -53,14 +53,14 @@
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Cor do fundo</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         <input type="color" name="bgcolor" value="{{$settings['bgcolor']}}" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Cor do texto</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-2">
                         <input type="color" name="textcolor" value="{{$settings['textcolor']}}" class="form-control">
                     </div>
                 </div>
