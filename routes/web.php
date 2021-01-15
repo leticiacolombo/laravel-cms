@@ -17,7 +17,7 @@ Route::get('/', 'Site\HomeController@index');
 
 Route::prefix('painel')->group(function() {
     Route::get('/', 'Admin\HomeController@index')->name('admin');
-    
+
     Route::get('login', 'Admin\Auth\LoginController@index')->name('login');
     Route::post('login', 'Admin\Auth\LoginController@authenticate');
 
@@ -36,3 +36,5 @@ Route::prefix('painel')->group(function() {
 
     Route::resource('pages', 'Admin\PageController');
 });
+
+Route::fallback('Site\PageController@index');

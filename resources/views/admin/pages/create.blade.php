@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    <div class="card">    
+    <div class="card">
         <div class="card-body">
             <form class="form-horizontal" action="{{ route('pages.store') }}" method="post">
                 @csrf
@@ -35,18 +35,35 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Corpo</label>
                     <div class="col-sm-10">
-                        <textarea name="body" class="form-control">{{old('body')}}</textarea>
+                        <textarea name="body" class="form-control bodyfield">{{old('body')}}</textarea>
                     </div>
-                </div>                
+                </div>
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
-                        <input type="submit" value="Criar" class="btn btn-success">                    
+                        <input type="submit" value="Criar" class="btn btn-success">
                     </div>
                 </div>
             </form>
         </div>
     </div>
+
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea.bodyfield',
+            height: 500,
+            menubar: false,
+            plugins: ['link', 'table', 'image', 'autoresize', 'lists'],
+            toolbar: 'undo redo | formatselect | bold italic backcolor | aligntleft aligncenter alignright alignjustify | table | link image | bullist numlist',
+            content_css: [
+                '{{asset('assets/css/content.css')}}'
+            ],
+            images_upload_url: '{{route('imageupload')}}', //ajax3
+            images_upload_credentials: true,
+            convert_urls:false
+        });
+    </script>
 
 @endsection
